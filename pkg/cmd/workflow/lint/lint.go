@@ -157,49 +157,8 @@ func viewWorkflowContent(opts *LintOptions, client *api.Client, workflow *shared
 		return fmt.Errorf("error linting file %s: %s", workflow.Name, err)
 	}
 
-	for problem := range problems {
+	for _, problem := range problems {
 		fmt.Fprintln(opts.IO.Out, problem)
 	}
-	// -
-	
-	// yaml := string(yamlBytes)
-
-	// theme := opts.IO.DetectTerminalTheme()
-	// markdownStyle := markdown.GetStyle(theme)
-	// if err := opts.IO.StartPager(); err != nil {
-	// 	fmt.Fprintf(opts.IO.ErrOut, "starting pager failed: %v\n", err)
-	// }
-	// defer opts.IO.StopPager()
-
-	// if !opts.Raw {
-	// 	cs := opts.IO.ColorScheme()
-	// 	out := opts.IO.Out
-
-	// 	fileName := workflow.Base()
-	// 	fmt.Fprintf(out, "%s - %s\n", cs.Bold(workflow.Name), cs.Gray(fileName))
-	// 	fmt.Fprintf(out, "ID: %s", cs.Cyanf("%d", workflow.ID))
-
-	// 	codeBlock := fmt.Sprintf("```yaml\n%s\n```", yaml)
-	// 	rendered, err := markdown.RenderWithOpts(codeBlock, markdownStyle,
-	// 		markdown.RenderOpts{
-	// 			markdown.WithoutIndentation(),
-	// 			markdown.WithoutWrap(),
-	// 		})
-	// 	if err != nil {
-	// 		return err
-	// 	}
-	// 	_, err = fmt.Fprint(opts.IO.Out, rendered)
-	// 	return err
-	// }
-
-	// if _, err := fmt.Fprint(opts.IO.Out, yaml); err != nil {
-	// 	return err
-	// }
-
-	// if !strings.HasSuffix(yaml, "\n") {
-	// 	_, err := fmt.Fprint(opts.IO.Out, "\n")
-	// 	return err
-	// }
-
 	return nil
 }
