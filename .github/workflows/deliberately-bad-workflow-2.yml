@@ -1,0 +1,10 @@
+name: deliberately bad workflow
+
+on: workflow_dispatch
+
+jobs:
+  jobOne:
+    needs: jobTwo
+  jobTwo:
+    needs: jobOne
+

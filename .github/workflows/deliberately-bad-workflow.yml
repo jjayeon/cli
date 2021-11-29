@@ -1,0 +1,7 @@
+name: deliberately bad workflow
+
+on: workflow_dispatch
+
+jobs:
+  this is a deliberately messed up file
+  this should not work
