@@ -15,6 +15,8 @@ import (
 	// "github.com/cli/cli/v2/pkg/markdown"
 	"github.com/cli/cli/v2/utils"
 	"github.com/spf13/cobra"
+
+	"github.com/actions-mlh/go-workflows/lint"
 )
 
 type LintOptions struct {
@@ -150,7 +152,7 @@ func viewWorkflowContent(opts *LintOptions, client *api.Client, workflow *shared
 		return fmt.Errorf("could not get workflow file content: %w", err)
 	}
 	
-	problems, err := Lint(workflow.Name, yamlBytes)
+	problems, err := lint.Lint(workflow.Name, yamlBytes)
 	if err != nil {
 		return fmt.Errorf("error linting file %s: %s", workflow.Name, err)
 	}
