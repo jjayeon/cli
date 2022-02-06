@@ -1,3 +1,7 @@
+# Author's Note
+
+This fork was used for the 2021 Fall GitHub Externship; changes made in this fork leverage the YAML parser [here](https://github.com/actions-mlh/go-workflows).  For more information, contact @jjayeon.
+
 # GitHub CLI
 
 `gh` is GitHub on the command line. It brings pull requests, issues, and other GitHub concepts to the terminal next to where you are already working with `git` and your code.
